@@ -1,0 +1,20 @@
+.footer-screen {
+  padding: 40px 100px 40px 100px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.member {
+  margin: 20px 0px 60px 0px;
+  font-size: 18px;
+}
+.member span:not(:first-child) {
+  margin-left: 20px;
+}
+
+.location {
+  font-size: 18px;
+}

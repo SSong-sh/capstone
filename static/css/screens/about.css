@@ -1,0 +1,67 @@
+.about-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-item {
+  height: 140px;
+  width: 600px;
+  display: block; /* 버튼을 블록 요소로 만듦 */
+  border-top: 2px solid rgba(255, 255, 255, 0.471); /* 2px 두께의 검은색 테두리 위쪽에 추가 */
+  display: flex;
+  align-items: center;
+}
+
+.about-item_icon {
+  margin-right: 30px;
+  font-size: 30px;
+}
+
+.about-itme-info {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.about-item_title {
+  font-size: 25px;
+}
+
+.content-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  flex-shrink: 0;
+}
+.content-inner_img img {
+  background-color: white;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.content-inner_des {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 30px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+.content-inner_des h4 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.content_more {
+  background-color: transparent;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 75px;
+  border-color: white;
+  color: white;
+}

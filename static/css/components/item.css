@@ -1,0 +1,25 @@
+.field_item img {
+  width: 280px;
+  height: 320px;
+  margin-right: 24px;
+}
+
+.field_item_title {
+  margin-top: 40px;
+  font-size: 20px;
+  white-space: nowrap;
+  color: white;
+}
+
+.tech-wrapper {
+  display: flex;
+  justify-content: space-between; /* 좌우로 균등하게 정렬 */
+}
+
+.field_item {
+  flex: 0 0 calc(20% - 24px);
+}
+
+.field_item:last-child {
+  margin-right: 0; /* 마지막 요소의 오른쪽 여백 제거 */
+}

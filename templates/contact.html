@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="static/css/screens/contactstyle.css" />
+    <title>Document</title>
+    <script src="static/js/main.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="index" class="navbar-logo">졸업작품</a>
+      </div>
+      <ul class="navbar-menu">
+        <div class="navbar_list">
+          <li><a href="tech">TECH</a></li>
+          <li><a href="about">ABOUT US</a></li>
+          <li><a href="map">SOLAR MAP</a></li>
+          <li><a href="contact">CONTACT</a></li>
+        </div>
+      </ul>
+      <div class="navbar-right">
+        <button class="new-button">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <div class="main-scroll">
+        <div class="more-screen">
+          <div class="more">
+            <h2 class="more_title">CONTACT FIELD</h2>
+
+            <div class="more_info">
+              <p>
+                조금 더 최적화를 확인하기 위해 아래 양식에 맞춰 이메일을
+                보내주세요
+              </p>
+            </div>
+
+            <div class="contact-container">
+              <div class="contact">
+                <div class="notice">
+                  <span>*</span>
+                  표시는 필수 입력 사항입니다.
+                </div>
+                <form>
+                  <div class="table">
+                    <div class="table1">
+                      <div class="name">
+                        <label for="user" class="user-title">이름 *</label>
+                        <input id="user" type="text" />
+                      </div>
+                      <div class="call">
+                        <label for="user-number" class="user-title"
+                          >연락처 *</label
+                        >
+                        <input id="user-number1" type="number" />
+                        -
+                        <input id="user-number2" type="number" />
+                        -
+                        <input id="user-number3" type="number" />
+                      </div>
+                    </div>
+                    <div class="table2">
+                      <div class="email">
+                        <label for="user-email" class="user-title"
+                          >이메일 *</label
+                        >
+                        <div class="input-area">
+                          <input id="user-email" type="text" />
+                        </div>
+                        @
+                        <div class="input-area">
+                          <input id="user-email2" type="text" />
+                        </div>
+
+                        <select name="email-address " id="email-select">
+                          <option selected>직접선택</option>
+                          <option>naver.com</option>
+                          <option>gmail.com</option>
+                          <option>kakao.com</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="table3">
+                      <div class="input-table">
+                        <label for="solar-input" class="user-title"
+                          >사용량 *</label
+                        >
+                        <div class="table-inner">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>시간</th>
+                                <!-- 시간대를 열로 추가 -->
+                                <th>01시</th>
+                                <th>02시</th>
+                                <th>03시</th>
+                                <th>04시</th>
+                                <th>05시</th>
+                                <th>06시</th>
+                                <th>07시</th>
+                                <th>08시</th>
+                                <th>09시</th>
+                                <th>10시</th>
+                                <th>11시</th>
+                                <th>12시</th>
+
+                                <!-- 추가적인 시간대는 여기에 계속 추가 -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- 사용량 입력 테이블 -->
+                              <tr>
+                                <td>사용량</td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+
+                                <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>시간</th>
+                                <!-- 시간대를 열로 추가 -->
+                                <th>13시</th>
+                                <th>14시</th>
+                                <th>15시</th>
+                                <th>16시</th>
+                                <th>17시</th>
+                                <th>18시</th>
+                                <th>19시</th>
+                                <th>20시</th>
+                                <th>21시</th>
+                                <th>22시</th>
+                                <th>23시</th>
+                                <th>24시</th>
+
+                                <!-- 추가적인 시간대는 여기에 계속 추가 -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- 사용량 입력 테이블 -->
+                              <tr>
+                                <td>사용량</td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="usage-input" type="text" />
+                                </td>
+
+                                <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <br />
+
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>시간</th>
+                                <!-- 시간대를 열로 추가 -->
+                                <th>01시</th>
+                                <th>02시</th>
+                                <th>03시</th>
+                                <th>04시</th>
+                                <th>05시</th>
+                                <th>06시</th>
+                                <th>07시</th>
+                                <th>08시</th>
+                                <th>09시</th>
+                                <th>10시</th>
+                                <th>11시</th>
+                                <th>12시</th>
+
+                                <!-- 추가적인 시간대는 여기에 계속 추가 -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- 사용량 입력 테이블 -->
+                              <tr>
+                                <td>발전량</td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+
+                                <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>시간</th>
+                                <!-- 시간대를 열로 추가 -->
+                                <th>13시</th>
+                                <th>14시</th>
+                                <th>15시</th>
+                                <th>16시</th>
+                                <th>17시</th>
+                                <th>18시</th>
+                                <th>19시</th>
+                                <th>20시</th>
+                                <th>21시</th>
+                                <th>22시</th>
+                                <th>23시</th>
+                                <th>24시</th>
+
+                                <!-- 추가적인 시간대는 여기에 계속 추가 -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>발전량</td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+                                <td>
+                                  <input class="solar-input" type="text" />
+                                </td>
+
+                                <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="table4">
+                      <div class="ask-container">
+                        <label for="ask" class="user-title">문의내용 *</label>
+                        <input
+                          id="ask"
+                          type="text"
+                          class="ask-inner"
+                          placeholder="더 궁금하신 내용이 있으시면 남겨주세요"
+                        />
+                      </div>
+                    </div>
+                    <!-- js 반복문으로 변경 예정 -->
+                    <div class="submit-btn">
+                      <button class="finish">문의하기</button> <!--여기에 onclick='submitData()' 넣으면 두번 호출되서 메일 2개 발송됨-->
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-screen">
+          <div class="footer-info">
+            <div class="member">
+              <span>장성호</span>
+              <span>김채현</span>
+              <span>송성혜</span>
+              <span>전태림</span>
+            </div>
+            <div class="location">
+              경기도 시흥시 산기대학로 237 한국공학대학교
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/4b3c3b390b.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+  // 전역 변수로 사용량 및 발전량 배열을 선언합니다.
+  var usageValues = [];
+  var solarValues = [];
+
+  // 문의하기 버튼을 가져옵니다.
+  var submitButton = document.querySelector(".finish");
+
+  // 문의하기 버튼에 클릭 이벤트 리스너를 추가합니다.
+  submitButton.addEventListener("click", function (event) {
+    // 기본 동작(페이지 새로고침)을 막습니다.
+    event.preventDefault();
+
+    // 모든 사용량 input 요소를 선택합니다.
+    var usageInputs = document.querySelectorAll(".usage-input");
+    var solarInputs = document.querySelectorAll(".solar-input");
+
+    // 배열을 초기화합니다.
+    usageValues = [];
+    solarValues = [];
+
+    // 각 input 요소에서 값을 추출하여 배열에 추가합니다.
+    usageInputs.forEach(function (input) {
+      usageValues.push(input.value);
+    });
+
+    solarInputs.forEach(function (input) {
+      solarValues.push(input.value);
+    });
+
+    // 결과 배열을 콘솔에 출력합니다.
+    console.log(usageValues);
+    console.log(solarValues);
+
+    // submitData 함수를 호출하여 서버에 데이터를 전송합니다.
+    submitData();
+  });
+  </script>
+  
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/css/screens/techstyle.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar2">
+      <div class="navbar-left2">
+        <a href="index" class="navbar-logo2">졸업작품</a>
+      </div>
+      <ul class="navbar-menu2">
+        <div class="navbar_list2">
+          <li><a href="tech">TECH</a></li>
+          <li><a href="about">ABOUT US</a></li>
+          <li><a href="map">SOLAR MAP</a></li>
+          <li><a href="contact">CONTACT</a></li>
+        </div>
+      </ul>
+      <div class="navbar-right2">
+        <button class="new-button2">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="wrap">
+      <div class="main-scroll">
+        <div class="more-screen">
+          <div class="tech-screen">
+            <div class="more">
+              <h2 class="more_title">TECH FIELD</h2>
+
+              <div class="more_info">
+                <p>
+                  태양광 발전량 및 전력 소비 예측을 통한 전기 요금 최소화 방안
+                </p>
+              </div>
+              <div class="tech-wrapper">
+                <div class="field_item">
+                  <div class="field_item_bg">
+                    <img src="static/img/item01.jpg" />
+                  </div>
+                  <div class="field_item_info">
+                    <div class="field_item_info_title">태양광 발전량 예측</div>
+                    <div class="field_item_info_des">
+                      다양한 종합 관측소 데이터를 모두 사용하여 거리에 반비례하는 가중치를 부여하여 예측 <br>
+                      다변량 예측으로 기상청 일기예보 API를 사용하여 1시간 단위로 1년치 데이터를 학습 후 24시간 동안의 발전량을 예측 <br>
+                      LSTM, Light GBM, Random Forest, Extra Trees, Clear Sky model을 base model으로 사용하여 태양광 발전량을 예측 <br>
+                      이후 linear regression model을 meta model으로 사용하여 base model의 예측 값을 학습하여 최종 예측 진행
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="field_item">
+                  <div class="field_item_bg">
+                    <img src="static/img/item01.jpg" />
+                  </div>
+                  <div class="field_item_info">
+                    <div class="field_item_info_title">전력 사용량 예측</div>
+                    <div class="field_item_info_des">
+                      60개의 공장 데이터를 사용하여 1시간 단위로 예측을 진행 <br>
+                      전력 사용량의 경우, 요일, 시간, 계절, 날씨 등에 따라 분산이 크기 때문에
+                      ML, 시계열 모델을 사용하지 않고, Bayesian Update를 사용하여 예측
+                      하루를 시간대로, 이를 다시 평일과 주말로 구분하여 총 48개(24개의 시간대 X 2개의 요일 유형)의 분포로 업데이트 진행 <br>
+                      새로 예측한 오차가 클 경우 이를 반영하여 다음 예측시 새로운 데이터에 대한 가중치를 크게 부여,
+                      오차가 작을 경우 가중치를 작게 부여하여 분포를 수렴하는 방향으로 설계
+                    </div>
+                  </div>
+                </div>
+                <div class="field_item">
+                  <div class="field_item_bg">
+                    <img src="static/img/item01.jpg" />
+                  </div>
+                  <div class="field_item_info">
+                    <div class="field_item_info_title">PSO를 통한 전기 요금 최소화</div>
+                    <div class="field_item_info_des">
+                      예측치를 사용하여 미래에 대한 최적해를 도출하는 과정에서 불확실성은 필연적으로 발생함 <br>
+                      Hierarchical optimization 구조를 사용함 <br>
+                      1) 전기 요금 최적화 <br>
+                      2) 최적해 분산 최소화 <br>
+
+                      1,2 과정을 통해 미래 상황에 강건하게 대처할 수 있는 최적해 도출 <br>
+
+                      특정 기업은 해당 최적화로 5~10p%의 전기 요금 절약이 가능함 <br><br><br>
+                      <p style="font-size: 24px;">𝑓𝑖𝑟𝑠𝑡 𝑜𝑏𝑗𝑒𝑐𝑡 𝑓𝑢𝑛𝑐𝑡𝑖𝑜𝑛</p>
+                      \[ \text{Min} \left[ \sum_{i=0}^{23} (power\ usage - solar\ generation\ usage) \times price \right] \] <br><br>
+
+                      <!-- Constraints of First Objective Function -->
+                      <p style="font-size: 24px;">𝑐𝑜𝑛𝑠𝑡𝑟𝑎𝑖𝑛𝑡 𝑜𝑓 𝑓𝑖𝑟𝑠𝑡 𝑜𝑏𝑗𝑒𝑐𝑡 𝑓𝑢𝑛𝑐𝑡𝑖𝑜𝑛</p>
+                      \[ \sum_{i=0}^{n} solar\ generation\ usage \leq \sum_{i=0}^{n} solar\ generation \quad (i = 0,1,2, \ldots, 23) \]
+                      \[ \sum_{x=n}^{n+1} (solar\ generation\ usage + solar\ generation - power\ usage) \geq 0 \]
+                      \[ solar\ generation\ usage, solar\ generation, power\ usage \geq 0 \] <br><br>
+
+                      <!-- Second Objective Function -->
+                      <p style="font-size: 24px;">𝑠𝑒𝑐𝑜𝑛𝑑 𝑜𝑏𝑗𝑒𝑐𝑡 𝑓𝑢𝑛𝑐𝑡𝑖𝑜𝑛</p>
+                      \[ \text{Min} \left[ \sum_{i \in peak\ group} (solar\ generation\_usage - group\ means) \right] \] <br><br>
+
+                      <!-- Constraint of Second Objective Function -->
+                      <p style="font-size: 24px;">𝑐𝑜𝑛𝑠𝑡𝑟𝑎𝑖𝑛𝑡 𝑜𝑓 𝑠𝑒𝑐𝑜𝑛𝑑 𝑜𝑏𝑗𝑒𝑐𝑡 𝑓𝑢𝑛𝑐𝑡𝑖𝑜𝑛</p>
+                      \[ \text{Total Cost from first optimization} \ni \text{Second Cost from optimization} \]
+                      \[ (first\ objective\ function, constraint \text{ 충족}) \] <br><br>
+
+                      <!-- Descriptions -->
+                      <p style="font-size: 24px;">𝑁𝑜𝑡𝑎𝑡𝑖𝑜𝑛</p>
+                      \[ power\ usage = \text{24시간 전력 사용량} \]
+                      \[ solar\ generation\ usage = \text{24시간 발전 전력 사용량} \]
+                      \[ solar\ generation = \text{24시간 태양광 발전량} \]
+                      \[ price = \text{계절, 시간별 가격} \]
+                      \[ group\ means = \text{시간별 가격 집단에 따른 } solar\ generation\ usage \text{ means} \]
+                      \[ peak\ group = \] 최대 부하 시간대 그룹 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-screen">
+          <div class="footer-info">
+            <div class="member">
+              <span>장성호</span>
+              <span>김채현</span>
+              <span>송성혜</span>
+              <span>전태림</span>
+            </div>
+            <div class="location">
+              경기도 시흥시 산기대학로 237 한국공학대학교
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/4b3c3b390b.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

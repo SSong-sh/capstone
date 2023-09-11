@@ -1,0 +1,20 @@
+.contact-bg {
+  height: 100%;
+  position: relative;
+}
+.contact_title {
+  font-size: 60px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  white-space: nowrap;
+}
+
+.contact_title h1 {
+  color: #f1c164;
+  text-shadow: 5px 5px #2d63a7;
+  margin-top: 70px;
+  font-size: 3em;
+  text-shadow: 5px 5px #16345a, 8px 8px #284d8e, 11px 11px #4d8cbf,
+    14px 14px #5fa9d9;
+}

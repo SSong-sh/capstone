@@ -1,0 +1,416 @@
+@import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "NexonLv1Gothic";
+}
+input {
+  font-size: 20px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  z-index: 1;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar_list {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.navbar-menu li {
+  margin-right: 20px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.new-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  color: black;
+  font-size: 20px;
+}
+/* more */
+.more-screen {
+  padding: 40px 80px 40px 80px;
+  color: black;
+}
+
+.more {
+  padding: 100px 48px 100px 48px;
+}
+
+.more_link {
+  display: flex;
+  flex-direction: row;
+
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.more_title {
+  margin-right: 20px;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.more_info {
+  margin-top: 40px;
+  font-size: 40px;
+  white-space: nowrap;
+  margin-bottom: 80px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* main */
+.wrap {
+  background-color: black;
+}
+.main-scroll {
+  border-radius: 0px 0px 100px 100px; /* 둥글게 할 반지름 값을 조정해보세요 */
+  background-color: white;
+  height: 1600px;
+  z-index: 999;
+}
+
+/* contact */
+.contact-container {
+  position: relative;
+  height: 100vh;
+
+  margin-top: 60px;
+}
+
+.notice {
+  position: absolute;
+  top: -40px;
+  font-size: 12px;
+}
+.notice span {
+  color: red;
+}
+
+.table1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+.name {
+  display: flex;
+  align-items: center;
+}
+.name input {
+  width: 420px;
+  height: 60px;
+  background-color: rgb(238, 235, 235);
+  border-style: none;
+}
+.user-title {
+  width: 100px;
+}
+.call {
+  display: flex;
+  align-items: center;
+}
+.call input {
+  width: 200px;
+  height: 60px;
+  background-color: rgb(238, 235, 235);
+  border-style: none;
+}
+
+.call span {
+  text-align: center;
+}
+.user-call {
+  padding-right: 30px;
+}
+.table2 {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+
+.table3 {
+  display: flex;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+
+.input-table {
+  display: flex;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.usage-input {
+  width: 70px;
+  text-align: center;
+}
+
+.solar-input {
+  width: 70px;
+  text-align: center;
+}
+
+.submmit-btn {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+.table4 {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.email input,
+.email select {
+  flex-grow: 1;
+  height: 60px;
+  background-color: rgb(238, 235, 235);
+  border-style: none;
+}
+
+.email select {
+  font-size: 18px;
+  text-align: center;
+}
+
+.email select {
+  margin-left: 5px;
+}
+
+.ask-container {
+  display: flex;
+  align-items: center;
+}
+.ask-inner {
+  width: 100%;
+  height: 300px;
+  background-color: rgb(238, 235, 235);
+  border-style: none;
+}
+.submmit-btn button {
+  border-style: none;
+  background-color: tomato;
+  font-size: 18px;
+  color: white;
+  width: 200px;
+  height: 60px;
+}
+
+/* footer */
+.footer-screen {
+  padding: 40px 100px 40px 100px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.member {
+  margin: 20px 0px 60px 0px;
+  font-size: 18px;
+}
+.member span:not(:first-child) {
+  margin-left: 20px;
+}
+
+.location {
+  font-size: 18px;
+}

@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "NexonLv1Gothic";
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  z-index: 9999;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar_list {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.navbar-menu li {
+  margin-right: 20px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.new-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  color: white;
+
+  font-size: 20px;
+}
+
+.field_item img {
+  width: 280px;
+  height: 320px;
+  margin-right: 24px;
+}
+
+.field_item_title {
+  margin-top: 40px;
+  font-size: 20px;
+  white-space: nowrap;
+  color: white;
+}
+
+.tech-wrapper {
+  display: flex;
+  justify-content: space-between; /* 좌우로 균등하게 정렬 */
+}
+
+.field_item {
+  flex: 0 0 calc(20% - 24px);
+}
+
+.field_item:last-child {
+  margin-right: 0; /* 마지막 요소의 오른쪽 여백 제거 */
+}
+.more-screen {
+  padding: 40px 80px 0px 80px;
+  color: white;
+}
+
+.more {
+  padding: 100px 48px 0px 48px;
+}
+
+.more_link {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+
+.more_title {
+  margin-right: 20px;
+  color: white;
+}
+
+.more_info {
+  margin-top: 40px;
+  font-size: 40px;
+  white-space: nowrap;
+  margin-bottom: 80px;
+  line-height: 1.5;
+}
+.about-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-item {
+  height: 140px;
+  width: 600px;
+  display: block; /* 버튼을 블록 요소로 만듦 */
+  border-top: 2px solid rgba(255, 255, 255, 0.471); /* 2px 두께의 검은색 테두리 위쪽에 추가 */
+  display: flex;
+  align-items: center;
+}
+
+.about-item_icon {
+  margin-right: 30px;
+  font-size: 30px;
+}
+
+.about-itme-info {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.about-item_title {
+  font-size: 25px;
+}
+
+.content-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  flex-shrink: 0;
+}
+.content-inner_img img {
+  background-color: white;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.content-inner_des {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 30px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+.content-inner_des h4 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.content_more {
+  background-color: transparent;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 75px;
+  border-color: white;
+  color: white;
+}
+.contact-bg {
+  height: 100%;
+  position: relative;
+}
+.contact_title {
+  font-size: 60px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  white-space: nowrap;
+}
+
+.contact_title h1 {
+  color: #f1c164;
+  text-shadow: 5px 5px #2d63a7;
+  margin-top: 70px;
+  font-size: 3em;
+  text-shadow: 5px 5px #16345a, 8px 8px #284d8e, 11px 11px #4d8cbf,
+    14px 14px #5fa9d9;
+}
+.main-scroll {
+  border-radius: 0px 0px 45px 0px; /* 둥글게 할 반지름 값을 조정해보세요 */
+  display: block; /* 블록 요소로 설정 */
+  height: 380vh; /* 임시 높이 값 추가 */
+  background-color: rgb(22, 36, 75);
+  position: relative;
+  top: -10px; /* 또는 다른 음수값을 사용하여 조정 */
+  z-index: 1; /* tech-wrapper가 배경 이미지 위로 올라가도록 z-index 설정 */
+}
+
+.main_img img {
+  width: 100%; /* 이미지의 가로 크기를 화면 너비에 맞게 조절합니다. */
+  height: auto; /* 이미지의 세로 크기는 자동으로 비율에 맞게 조절됩니다. */
+}
+
+.main-screen {
+  position: relative;
+}
+
+.main_text {
+  display: flex;
+}
+
+.main_text_title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 80px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow: 1px 5px 5px rgb(29, 84, 105);
+}
+
+.main_text_content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  white-space: nowrap;
+  text-shadow: 2px 2px 2px black;
+}
+
+.main_text_btn {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 50px;
+  font-weight: 100;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-screen {
+  padding: 40px 100px 40px 100px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.member {
+  margin: 20px 0px 60px 0px;
+  font-size: 18px;
+}
+.member span:not(:first-child) {
+  margin-left: 20px;
+}
+
+.location {
+  font-size: 18px;
+}
