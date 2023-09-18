@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="static/css/screens/contactstyle.css" />
     <title>Document</title>
     <script src="static/js/main.js"></script>
+<script>
+  window.onload = function() {
+
+    var solarDataString = localStorage.getItem("solarData");
+    console.log("Stored solarData:", localStorage.getItem("solarData"));
+
+    if (solarDataString && solarDataString !== "undefined") {
+        var solarData = JSON.parse(solarDataString);
+        
+        if (solarData) {
+            // 입력란에 태양광 발전량 데이터를 채워 넣기
+            var inputs = document.querySelectorAll(".solar-input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = solarData[i];
+            }
+        }
+    }
+    localStorage.removeItem("solarData");
+}
+
+</script>
   </head>
   <body>
     <nav class="navbar">
@@ -447,6 +468,13 @@
 
     // submitData 함수를 호출하여 서버에 데이터를 전송합니다.
     submitData();
+    var inputs = document.querySelectorAll(".solar-input");
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    }
+
+    // localStorage의 solarData 값 초기화
+    localStorage.removeItem("solarData");
   });
   </script>
   
