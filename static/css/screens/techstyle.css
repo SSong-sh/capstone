@@ -224,8 +224,10 @@ body {
 }
 .field_item_info {
   display: flex;
+  font-size: 20px;
   flex-direction: column;
   justify-content: flex-start;
+  line-height: 1.6;
 }
 
 .field_item_info_title {
@@ -249,6 +251,9 @@ body {
   margin-right: 40px;
 }
 
+.field_item_info_des_center {
+
+}
 /* more */
 .more-screen {
   padding: 40px 80px 40px 80px;

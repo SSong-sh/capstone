@@ -270,6 +270,10 @@ body {
   margin-top: 20px;
   margin-bottom: 40px;
 }
+.a-style {
+text-decoration: none;
+  color: black;
+}
 
 select[name="pannel"] {
   width: 100px; /* 원하는 넓이로 설정 */
