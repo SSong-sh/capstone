@@ -107,6 +107,10 @@
                         </select>
                       </div>
                     </div>
+                    <label for="defaultUsageCheckbox">기본값 사용</label>
+                    <input type="checkbox" id="defaultUsageCheckbox">
+                  
+                    
                     <div class="table3">
                       <div class="input-table">
                         <label for="solar-input" class="user-title"
@@ -393,7 +397,10 @@
                         />
                       </div>
                     </div>
+
+
                     <!-- js 반복문으로 변경 예정 -->
+
                     <div class="submit-btn">
                       <button class="finish">문의하기</button> <!--여기에 onclick='submitData()' 넣으면 두번 호출되서 메일 2개 발송됨-->
                     </div>
@@ -475,7 +482,46 @@
 
     // localStorage의 solarData 값 초기화
     localStorage.removeItem("solarData");
+    document.getElementById("user").value = "";
+          
+    // 연락처 초기화
+    document.getElementById("user-number1").value = "";
+    document.getElementById("user-number2").value = "";
+    document.getElementById("user-number3").value = "";
+
+    // 이메일 초기화
+    document.getElementById("user-email").value = "";
+    document.getElementById("user-email2").value = "";
+
+    // 문의하기 내용 초기화
+    document.getElementById("ask").value = "";
+
   });
+
+
+  var using = [1735.22558912, 1692.90378425, 1666.60942472, 1633.57393765,
+              1617.61366307, 1648.86508108, 1734.7991391 , 1899.72908325,
+              2122.85455022, 2338.61845383, 2510.15136875, 2525.4701233 ,
+              2528.12289007, 2533.74891152, 2540.86959113, 2536.0931445 ,
+              2521.54245219, 2439.14067532, 2287.51492254, 2184.60913869,
+              2063.78559294, 1904.35326784, 1788.63632033, 1780.4262118 ];
+
+  
+  document.getElementById("defaultUsageCheckbox").addEventListener("change", function(event) {
+    var usageInputs = document.querySelectorAll(".usage-input");
+    if (this.checked) {
+        // 체크박스가 체크된 경우 기본값 할당
+        for (var i = 0; i < usageInputs.length && i < using.length; i++) {
+            usageInputs[i].value = using[i].toFixed(2);
+        }
+    } else {
+        // 체크박스가 해제된 경우 입력란 초기화
+        for (var i = 0; i < usageInputs.length; i++) {
+            usageInputs[i].value = "";
+        }
+    }
+  });
+
   </script>
   
 </html>
