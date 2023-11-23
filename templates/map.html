@@ -40,6 +40,7 @@
                           <option value="2">2kWp</option>
                           <option value="3">3kWp</option>
                           <option value="4">4kWp</option>
+                          <option value="5">5kWp</option>
                         </select>
                       </form>
                       <button onclick="calculateCapacity()">조건변경</button>
@@ -59,7 +60,7 @@
             </div>
           </div>
           <div id="clickLatlng"></div>
-          <form id="search-form">
+          <form id="search-form" onsubmit="event.preventDefault(); searchAddress();">
             <div class="form-style">
               <div class="navbar-left">
                 <a href="index" class="navbar-logo">졸업작품</a>
@@ -97,7 +98,7 @@ function goToContactPageWithSolarData() {
       crossorigin="anonymous"
     >
 </script>
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2597e8451d340207037236899f5693f3&libraries=services">
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=767f5668a885a76b8b29f9ba76a03369&libraries=services">
 
 </script>
     
@@ -113,7 +114,8 @@ function goToContactPageWithSolarData() {
       var location_2_lat;
       var location_2_lng;
       var myChart;
-      var globalSolarData; 
+      var globalSolarData;
+      var places = new kakao.maps.services.Places();  
       
 
       function initMap() {
@@ -127,10 +129,12 @@ function goToContactPageWithSolarData() {
       }
 
       function searchAddress() {
+        event.preventDefault();
         var address = document.getElementById("address-input").value;
 
         var geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch(address, function (result, status) {
+        places.keywordSearch(address, function(result, status) {
+        // geocoder.addressSearch(address, function (result, status) {
           if (status === kakao.maps.services.Status.OK) {
             var location = new kakao.maps.LatLng(result[0].y, result[0].x);
             location_2_lat = location.getLat(); 
@@ -176,10 +180,6 @@ function goToContactPageWithSolarData() {
           closeModal();
         }
       };
-
-      kakao.maps.load(function () {
-        initMap();
-      });
 
       kakao.maps.load(function () {
         initMap();

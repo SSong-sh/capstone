@@ -178,8 +178,8 @@ def send_mail():
     solar_value_list = []
     using_value_list = []
 
-    print(solar)
-    print(using)
+    # print(solar)
+    # print(using)
 
 
     # 이메일 내용 구성
