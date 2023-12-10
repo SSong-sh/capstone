@@ -104,10 +104,10 @@ function submitData() {
     })
 
     .then(data => {
-        if (data && data.status === 'success') {
+        if (data.status === 'success') {
             alert(data.message);
         } else {
-            alert('Error: ' + (data && data.message ? data.message : 'Unknown error'));
+            alert('Error: ' + data.message);
         }
     })
     .catch((error) => {
@@ -206,47 +206,3 @@ function submitPowerData() {
         console.error('Error:', error);
     });
 }
-
-function drawGraph(graphData) {
-    const ctx = document.getElementById('graph-container').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: graphData.hours,
-            datasets: [{
-                label: '실제 전력 사용량',
-                data: graphData.total_power,
-                backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                borderColor: 'rgba(255, 159, 64, 1)',
-                borderWidth: 1,
-                yAxisID: 'y-axis-1',
-            }, {
-                label: '태양광 발전량',
-                data: graphData.solar_power,
-                type: 'line',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 2,
-                fill: false,
-                yAxisID: 'y-axis-2',
-            }]
-        },
-        options: {
-            scales: {
-                'y-axis-1': {
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                },
-                'y-axis-2': {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    gridLines: {
-                        drawOnChartArea: false,
-                    },
-                },
-            },
-        },
-    });
-}
-
