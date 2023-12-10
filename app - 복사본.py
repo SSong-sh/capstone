@@ -452,24 +452,3 @@ def calculate_price():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug = True, port=5000)
-    
-    
-@app.route('/optimize_and_plot', methods=['POST'])
-def optimize_and_plot():
-    data = request.get_json()
-    power_generated = data['power_generated']
-    power_used = data['power_used']
-
-    # Example optimization logic (placeholder)
-    optimized_power = [min(g, u) for g, u in zip(power_generated, power_used)]
-
-    # Example graph data generation
-    graph_data = {
-        'hours': list(range(24)),
-        'total_power': power_used,
-        'solar_power': power_generated,
-        'optimized_power': optimized_power  # Example optimized data
-    }
-
-    return jsonify(graph_data)
- 
