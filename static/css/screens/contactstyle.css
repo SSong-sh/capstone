@@ -402,6 +402,7 @@ td {
 /* footer */
 .footer-screen {
   padding: 40px 100px 40px 100px;
+  bottom :0;
 }
 
 .footer-info {

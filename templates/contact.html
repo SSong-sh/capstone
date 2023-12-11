@@ -398,12 +398,16 @@
                       </div>
                     </div>
 
-
                     <!-- js 반복문으로 변경 예정 -->
 
                     <div class="submit-btn">
                       <button class="finish">문의하기</button> <!--여기에 onclick='submitData()' 넣으면 두번 호출되서 메일 2개 발송됨-->
                     </div>
+                   </br>
+                  </br>
+
+                      <canvas id='graph-container'></canvas>
+
                   </div>
                 </form>
               </div>
@@ -411,25 +415,13 @@
           </div>
         </div>
       </div>
-
-      <footer>
-        <div class="footer-screen">
-          <div class="footer-info">
-            <div class="member">
-              <span>장성호</span>
-              <span>김채현</span>
-              <span>송성혜</span>
-              <span>전태림</span>
-            </div>
-            <div class="location">
-              경기도 시흥시 산기대학로 237 한국공학대학교
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<canvas id='graph-container'></canvas></body>
+
+</body>
 
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -476,6 +468,9 @@
 
     // submitData 함수를 호출하여 서버에 데이터를 전송합니다.
     submitData();
+    submitPowerData();
+
+
     var inputs = document.querySelectorAll(".solar-input");
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = "";
@@ -522,9 +517,13 @@
         }
     }
   });
+  
 
   </script>
-  
-</html>
-<!-- Chart.js 라이브러리 추가 -->
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</html>
+
