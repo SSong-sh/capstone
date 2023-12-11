@@ -392,6 +392,8 @@ def variance_fitness_func_with_group_mean(position, base_cost, season, power_gen
     return weighted_deviation
 
 def cal_price_with_variance_optimization_updated(power_generated, power_use, weather):
+    power_generated = np.array(power_generated).astype(float)
+    power_use = np.array(power_use).astype(float)
     bounds = [(0, power_use[i] * 0.9) for i in range(24)]
     initial_positions = [(power_generated*0.2).tolist() if i < 125 else [0]*24 for i in range(250)] 
     pso_price = PSO(lambda x: fitness_func(x, weather, power_generated, power_use), bounds, num_particles = 10, max_iter = 200, initial_positions=initial_positions)
@@ -425,35 +427,22 @@ def calculate_price():
     weather = 'summer'
 
     # Call the optimization function
-    result = cal_price_with_variance_optimization_updated(power_generated, power_used, weather)
+    best_position_variance, best_fitness_price, before_optimal_price, before_price, history, his_2 = cal_price_with_variance_optimization_updated(power_generated, power_used, weather)
 
     # Return the result
-    return jsonify(result)
-
-def calculate_price():
-    data = request.get_json()
-    power_generated = data['power_generated']
-    power_used = data['power_used']
-
-    # Here we fix the weather parameter to 'summer'
-    weather = 'summer'
-
-    # Call the optimization function
-    result = cal_price_with_variance_optimization_updated(power_generated, power_used, weather)
-
-    # Return the result
-    return jsonify(result)
+    return jsonify({
+        'hour':list(range(24)),
+        'best_position_variance': best_position_variance,
+        'best_fitness_price': best_fitness_price,
+        'before_optimal_price': before_optimal_price,
+        'before_price': before_price,
+        'history': history,
+        'his_2': his_2,
+        'before_solar':power_generated
+    })
 
 
 
-
-
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug = True, port=5000)
-    
-    
 @app.route('/optimize_and_plot', methods=['POST'])
 def optimize_and_plot():
     data = request.get_json()
@@ -472,4 +461,10 @@ def optimize_and_plot():
     }
 
     return jsonify(graph_data)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug = True, port=5000)
+    
+    
+
  

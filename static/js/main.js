@@ -13,10 +13,8 @@ function sendData() {
     }),
     })
     
-    // Existing code to send data to server...
     .then(response => response.json())
     .then(graphData => {
-        // Handle response data here
         console.log(graphData);
         drawGraph(graphData); // Call the function to draw the graph
     })
@@ -92,27 +90,14 @@ function submitData() {
         body: JSON.stringify(userData),
     })
     
-    // Existing code to send data to server...
-    .then(response => response.json())
-    .then(graphData => {
-        // Handle response data here
-        console.log(graphData);
-        drawGraph(graphData); // Call the function to draw the graph
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    })
-
-    .then(data => {
-        if (data && data.status === 'success') {
-            alert(data.message);
-        } else {
-            alert('Error: ' + (data && data.message ? data.message : 'Unknown error'));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        return response.json();
     })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
     });
 }
 ;
@@ -121,113 +106,97 @@ function submitData() {
 document.addEventListener('DOMContentLoaded', function() {
     // Adding an event listener to the inquiry button
     var inquiryButton = document.getElementById('inquiry-button'); // Assuming the ID of the inquiry button is 'inquiry-button'
-    if (inquiryButton) {
+    if (inquiryButton && !inquiryButton.classList.contains('event-bound')) {
         inquiryButton.addEventListener('click', function(event) {
             event.preventDefault(); // Preventing the default form submission behavior
             submitPowerData(); // Calling the function when the inquiry button is clicked
         });
+        inquiryButton.classList.add('event-bound'); // Add a flag to indicate the event is bound
     }
 });
 
 
+
 function submitPowerData() {
-    // Collect power data from existing tables
-    let powerGeneratedInputs = document.querySelectorAll('.solar-input'); // Assuming these are the classes for the existing tables
-    let powerUsedInputs = document.querySelectorAll('.usage-input');      // Assuming these are the classes for the existing tables
+    let usingElements = document.querySelectorAll(".usage-input");
+    let solarElements = document.querySelectorAll(".solar-input");
+    let usingValues = Array.from(usingElements).map(input => input.value);
+    let solarValues = Array.from(solarElements).map(input => input.value);
+    console.log(usingValues);
+    console.log(solarValues);
 
-    let powerGenerated = Array.from(powerGeneratedInputs).map(input => parseFloat(input.value));
-    let powerUsed = Array.from(powerUsedInputs).map(input => parseFloat(input.value));
-
-    // Construct the data object
-    let powerData = {
-        'power_generated': powerGenerated,
-        'power_used': powerUsed
-    };
-
-    // Send POST request to the new route in the Flask app
     fetch('/calculate_price', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(powerData),
+        body: JSON.stringify({
+            'power_generated': solarValues,
+            'power_used': usingValues
+        }),
     })
-    
-    // Existing code to send data to server...
     .then(response => response.json())
     .then(graphData => {
-        // Handle response data here
-        console.log(graphData);
-        drawGraph(graphData); // Call the function to draw the graph
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    })
-    .then(data => {
-        // Handle response data here
-        console.log(data);
-        // Additional code to display the results in a graph can be added here
+        // console.log(graphData);
+        drawGraph(graphData); 
     })
     .catch((error) => {
         console.error('Error:', error);
     });
 }
 
-
-function submitPowerData() {
-    // Collect power data from existing tables
-    let powerGeneratedInputs = document.querySelectorAll('.solar-input'); // Assuming these are the classes for the existing tables
-    let powerUsedInputs = document.querySelectorAll('.usage-input');      // Assuming these are the classes for the existing tables
-
-    let powerGenerated = Array.from(powerGeneratedInputs).map(input => parseFloat(input.value));
-    let powerUsed = Array.from(powerUsedInputs).map(input => parseFloat(input.value));
-
-    // Construct the data object
-    let powerData = {
-        'power_generated': powerGenerated,
-        'power_used': powerUsed
-    };
-
-    // Send POST request to the new route in the Flask app
-    fetch('/calculate_price', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(powerData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle response data here
-        console.log(data);
-        // Additional code to display the results in a graph can be added here
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
-
+let mychart = null;
 function drawGraph(graphData) {
+    let usingElements = document.querySelectorAll(".usage-input");
+    let solarElements = document.querySelectorAll(".solar-input");
+    let usingValues = Array.from(usingElements).map(input => input.value);
+    let solarValues = Array.from(solarElements).map(input => input.value);
+    let purchase = usingValues.map((value, index) => value - graphData.best_position_variance[index]);
+    
     const ctx = document.getElementById('graph-container').getContext('2d');
-    new Chart(ctx, {
+    console.log('power generated')
+    console.log(graphData.power_generated);
+    if (mychart) {
+        mychart.destroy();
+        console.log('destroyed');
+    }
+    mychart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: graphData.hours,
+            labels: graphData.hour,
             datasets: [{
                 label: '실제 전력 사용량',
-                data: graphData.total_power,
+                data: usingValues,
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 borderColor: 'rgba(255, 159, 64, 1)',
-                borderWidth: 1,
+                borderWidth: 2,
+                type: 'line',
                 yAxisID: 'y-axis-1',
             }, {
                 label: '태양광 발전량',
-                data: graphData.solar_power,
+                data: graphData.before_solar,
                 type: 'line',
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 2,
                 fill: false,
-                yAxisID: 'y-axis-2',
+                yAxisID: 'y-axis-1',
+            },
+            {
+                label: '최적 발전 사용량',
+                data: graphData.best_position_variance,
+                borderWidth: 1,
+                fill: false,
+                yAxisID: 'y-axis-1',
+                backgroundColor:'rgba(255, 159, 64, 0.5)'
+            },
+            {
+                label: '구매 전력 사용량',
+                data : purchase,
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1,
+                fill: false,
+                yAxisID: 'y-axis-1',
+
             }]
         },
         options: {
@@ -236,14 +205,6 @@ function drawGraph(graphData) {
                     type: 'linear',
                     display: true,
                     position: 'left',
-                },
-                'y-axis-2': {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    gridLines: {
-                        drawOnChartArea: false,
-                    },
                 },
             },
         },
